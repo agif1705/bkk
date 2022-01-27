@@ -15,7 +15,7 @@ class AdminPanelController extends Controller
     public function index()
     {
         // $user = User::all();    
-        return view('admin.booking.create');
+        return view('admin.adminhome');
     }
 
     /**
