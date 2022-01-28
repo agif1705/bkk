@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IconController;
 use App\Http\Controllers\ScraperController;
+use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\AdminPanelController;
 
 /*
@@ -19,6 +20,7 @@ use App\Http\Controllers\AdminPanelController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/role', [UserController::class, 'listuser']);
 
 Auth::routes();
 
@@ -26,6 +28,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::middleware(['auth', 'role:SuperAdmin'])->group(function () {
     Route::get('/admin', [AdminPanelController::class, 'index']);
     Route::get('/admin/{any}', [AdminPanelController::class, 'index'])->where('any','.*');
-    Route::resource('/icon', IconController::class);
+    Route::resource('/icon/icon', IconController::class);
     
 });

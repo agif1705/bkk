@@ -5432,7 +5432,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  // props: ["username"],
   data: function data() {
     return {
       record: []
@@ -5442,7 +5441,7 @@ __webpack_require__.r(__webpack_exports__);
     loadData: function loadData() {
       var _this = this;
 
-      axios.get("/api/listuser").then(function (_ref) {
+      axios.get("/api/datauser").then(function (_ref) {
         var data = _ref.data;
         return _this.record = data;
       });
@@ -39554,7 +39553,7 @@ var render = function () {
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(item.email))]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(item.roles))]),
+                    _c("td", [_vm._v(_vm._s(item.roles[0].name))]),
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(item.konsol_id))]),
                     _vm._v(" "),
@@ -39585,7 +39584,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Email")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Role")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Token")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Konsol")]),
         _vm._v(" "),

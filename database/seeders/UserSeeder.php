@@ -23,7 +23,8 @@ class UserSeeder extends Seeder
             'token' => bcrypt('bundokargo'),
             'v_password' => 12345678,
         ]);
-        
+        $token = $user->createToken('auth_token')->plainTextToken;
+        $users = $user->update(['token'=>$token]);
         $user->assignRole('SuperAdmin');
 
         $user = User::create([
@@ -35,7 +36,8 @@ class UserSeeder extends Seeder
             'token' => bcrypt('bundokargo'),
             'v_password' => 12345678,
         ]);
-        
+        $token = $user->createToken('auth_token')->plainTextToken;
+        $users = $user->update(['token'=>$token]);
         $user->assignRole('AdminKargo');
 
         $user = User::create([
@@ -48,8 +50,10 @@ class UserSeeder extends Seeder
             'v_password' => 12345678,
         ]);
         
+           $token = $user->createToken('auth_token')->plainTextToken;
+        $users = $user->update(['token'=>$token]);
         $user->assignRole('AdminRetail');
-        
+
         $user = User::create([
             'konsol_id' => 1,
             'name' => 'station',
@@ -59,7 +63,8 @@ class UserSeeder extends Seeder
             'token' => bcrypt('bundokargo'),
             'v_password' => 12345678,
         ]);
-        
+        $token = $user->createToken('auth_token')->plainTextToken;
+        $users = $user->update(['token'=>$token]);
         $user->assignRole('Station');
 
         $user = User::create([
@@ -71,7 +76,8 @@ class UserSeeder extends Seeder
             'token' => bcrypt('bundokargo'),
             'v_password' => 12345678,
         ]);
-        
+        $users = $user->update(['token'=>$token]); 
+        $token = $user->createToken('auth_token')->plainTextToken;
         $user->assignRole('Kurir');
 
         $user = User::create([
@@ -83,7 +89,8 @@ class UserSeeder extends Seeder
             'token' => bcrypt('bundokargo'),
             'v_password' => 12345678,
         ]);
-        
+        $token = $user->createToken('auth_token')->plainTextToken;
+        $users = $user->update(['token'=>$token]);
         $user->assignRole('Delete');
     }
 }

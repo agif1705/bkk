@@ -16,7 +16,7 @@
                                 <form class="form-group col-sm-12" id="form" action="{{ route('icon.store') }}"
                                     method="POST">
                                     @csrf
-                                    <label for="icon">Nama Icon Cek </label>
+                                    <label for="icon">Nama Icon Cek {{ Auth::token() }}</label>
                                     <input class="form-control" type="text" name="icon" id="icon">
                                     <button type="submit" class="btn btn-success mt-3">Simpan</button>
                                 </form>

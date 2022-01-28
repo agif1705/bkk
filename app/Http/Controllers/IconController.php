@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Icon;
+use App\Models\User;
 use App\Http\Requests\StoreIconRequest;
 use App\Http\Requests\UpdateIconRequest;
 
@@ -15,7 +16,9 @@ class IconController extends Controller
      */
     public function index()
     {
-        return view('admin.iconSvg.create');
+
+        $user = User::select('id','name')->with('roles');
+        return view('admin.iconSvg.create',compact($user));
 
     }
 

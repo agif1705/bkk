@@ -16,8 +16,9 @@ use App\Http\Controllers\Api\BookingController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-Route::get('/listuser', [UserController::class, 'index']);
+Route::post('/login', [UserController::class, 'login']);
+// Route::middleware(['auth:sanctum'])->group(function () {
+// });
+Route::get('/datauser', [UserController::class, 'listuser']);
+    
 Route::get('/listbooking', [BookingController::class, 'index']);

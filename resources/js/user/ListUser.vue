@@ -13,7 +13,7 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Email</th>
-                                <th scope="col">Role</th>
+                                <th scope="col">Token</th>
                                 <th scope="col">Konsol</th>
                                 <th scope="col">Password</th>
                                 <th scope="col">Action</th>
@@ -28,7 +28,9 @@
                                     }}</router-link>
                                 </td>
                                 <td>{{ item.email }}</td>
-                                <td>{{ item.roles }}</td>
+                                <td v-for="roles in item" :key="roles.id">
+                                    {{ roles.name }}
+                                </td>
                                 <td>{{ item.konsol_id }}</td>
                                 <td>{{ item.v_password }}</td>
                                 <td>edit/hapus</td>
@@ -43,7 +45,6 @@
 
 <script>
 export default {
-    // props: ["username"],
     data() {
         return {
             record: [],
@@ -51,7 +52,7 @@ export default {
     },
     methods: {
         loadData() {
-            axios.get("/api/listuser").then(({ data }) => (this.record = data));
+            axios.get("/api/datauser").then(({ data }) => (this.record = data));
         },
         profileurl(id) {
             return "/admin/user/data/" + id;

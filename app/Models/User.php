@@ -25,6 +25,7 @@ class User extends Authenticatable
         'v_password',
         'email',
         'password',
+        'token',
     ];
 
     /**
@@ -36,6 +37,7 @@ class User extends Authenticatable
         'password',
         'remember_token',
         'token',
+        
 
     ];
 

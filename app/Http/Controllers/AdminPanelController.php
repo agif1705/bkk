@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminPanelController extends Controller
 {
@@ -14,8 +15,8 @@ class AdminPanelController extends Controller
      */
     public function index()
     {
-        // $user = User::all();    
-        return view('admin.adminhome');
+        $token = Auth::user()->token;    
+        return view('admin.adminhome',compact('token'));
     }
 
     /**
