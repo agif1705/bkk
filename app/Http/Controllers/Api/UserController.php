@@ -25,8 +25,12 @@ class UserController extends Controller
       }
     public function listuser()
       {
-      
         $data = User::with('roles')->get();
         return response()->json($data, 200); 
+      }
+      public function profile(user $user)
+      {
+        
+        return response()->json($user, 200); 
       }
 }

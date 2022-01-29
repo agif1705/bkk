@@ -20,13 +20,13 @@ use App\Http\Controllers\AdminPanelController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/role', [UserController::class, 'listuser']);
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::middleware(['auth', 'role:SuperAdmin'])->group(function () {
     Route::get('/admin', [AdminPanelController::class, 'index']);
+    Route::get('/admin/user/data/{user:username}', [UserController::class, 'profile']);
     Route::get('/admin/{any}', [AdminPanelController::class, 'index'])->where('any','.*');
     Route::resource('/icon/icon', IconController::class);
     

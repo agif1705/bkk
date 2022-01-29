@@ -23,9 +23,10 @@
                             <tr v-for="item in record" :key="item.id">
                                 <th scope="row">{{ item.id }}</th>
                                 <td>
-                                    <router-link :to="profileurl(item.id)">{{
-                                        item.name
-                                    }}</router-link>
+                                    <router-link :to="profileurl(item.username)"
+                                        >{{ item.name }} -
+                                        {{ item.username }}</router-link
+                                    >
                                 </td>
                                 <td>{{ item.email }}</td>
                                 <td v-for="roles in item" :key="roles.id">
@@ -54,8 +55,8 @@ export default {
         loadData() {
             axios.get("/api/datauser").then(({ data }) => (this.record = data));
         },
-        profileurl(id) {
-            return "/admin/user/data/" + id;
+        profileurl(username) {
+            return "/admin/user/data/" + username;
         },
     },
     created() {

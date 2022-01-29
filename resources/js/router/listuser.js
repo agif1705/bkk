@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import NotFound from "../user/NotFound.vue";
 import ListUser from "../user/listuser.vue";
+import profile from "../user/profile.vue";
 import Home from "../user/HomeAdmin.vue";
 Vue.use(VueRouter);
 
@@ -10,6 +11,12 @@ const routes = [
         name: "listuser",
         path: "/admin/listuser",
         component: ListUser,
+        props: true,
+    },
+    {
+        name: "profile.user",
+        path: "/admin/user/data/{user:username}",
+        component: profile,
         props: true,
     },
     {
