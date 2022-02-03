@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
@@ -28,9 +30,15 @@ class UserController extends Controller
         $data = User::with('roles')->get();
         return response()->json($data, 200); 
       }
-      public function profile(user $user)
+      public function profile($user)
       {
-        
-        return response()->json($user, 200); 
+        $username = User::whereUsername($user)->select('id','name','username','email','v_password','password','konsol_id')->with('roles')->first();
+        $role = Role::all();
+        $Permission = Permission::all();
+        return response()->json([
+          'data' => $username,
+          'Permission' => $Permission,
+          'role' => $role
+        ], 200); 
       }
 }

@@ -15,7 +15,7 @@ const routes = [
     },
     {
         name: "profile.user",
-        path: "/admin/user/data/{user:username}",
+        path: "/admin/profile/:username?",
         component: profile,
         props: true,
     },

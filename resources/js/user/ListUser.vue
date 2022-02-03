@@ -13,6 +13,7 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Email</th>
+                                <th scope="col">Username</th>
                                 <th scope="col">Token</th>
                                 <th scope="col">Konsol</th>
                                 <th scope="col">Password</th>
@@ -25,12 +26,13 @@
                                 <td>
                                     <router-link :to="profileurl(item.username)"
                                         >{{ item.name }} -
-                                        {{ item.username }}</router-link
-                                    >
+                                        {{ item.username }}
+                                    </router-link>
                                 </td>
                                 <td>{{ item.email }}</td>
-                                <td v-for="roles in item" :key="roles.id">
-                                    {{ roles.name }}
+                                <td>{{ item.username }}</td>
+                                <td v-for="role in item.roles" :key="role.name">
+                                    {{ role.name }}
                                 </td>
                                 <td>{{ item.konsol_id }}</td>
                                 <td>{{ item.v_password }}</td>
@@ -56,7 +58,7 @@ export default {
             axios.get("/api/datauser").then(({ data }) => (this.record = data));
         },
         profileurl(username) {
-            return "/admin/user/data/" + username;
+            return "/admin/profile/" + username;
         },
     },
     created() {
