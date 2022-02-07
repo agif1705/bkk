@@ -30,14 +30,24 @@ const routes = [
         component: NotFound,
     },
     {
-        name: "create",
-        path: "/admin/create",
+        name: "booking",
+        path: "/admin/booking",
         component: require("../booking/Create.vue").default,
     },
     {
         name: "pickup",
         path: "/admin/pickup",
         component: require("../booking/Pickup.vue").default,
+    },
+    {
+        name: "createkargo",
+        path: "/admin/created/kargo",
+        component: require("../booking/CreateKargo.vue").default,
+    },
+    {
+        name: "createkurir",
+        path: "/admin/created/kurir",
+        component: require("../booking/CreateKurir.vue").default,
     },
 ];
 const router = new VueRouter({

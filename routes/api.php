@@ -20,5 +20,6 @@ Route::post('/login', [UserController::class, 'login']);
 // Route::middleware(['auth:sanctum'])->group(function () {
 // });
 Route::get('/datauser', [UserController::class, 'listuser']);
+Route::get('/dataacess', [UserController::class, 'listaccess']);
 Route::get('/profile/{user:username}', [UserController::class, 'profile']);
 Route::get('/listbooking', [BookingController::class, 'index']);

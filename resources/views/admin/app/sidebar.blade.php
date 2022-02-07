@@ -30,9 +30,9 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <router-link :to="{name:'create'}" class="nav-link">
+                            <router-link :to="{name:'booking'}" class="nav-link">
                                 <i class="fas fa-plus-circle nav-icon text-primary"></i>
-                                <p>List Booking</p>
+                                <p>Booking</p>
                             </router-link>
                         </li>
                         <li class="nav-item">
@@ -62,7 +62,6 @@
                     </ul>
                 </li>
             </ul>
-
         </nav>
         <!-- /.sidebar-menu -->
     </div>

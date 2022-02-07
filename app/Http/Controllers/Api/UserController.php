@@ -41,4 +41,11 @@ class UserController extends Controller
           'role' => $role
         ], 200); 
       }
+      public function listaccess()
+      {
+        $Permission = Permission::all();
+        $role = role::all();
+        return response()->json([$Permission,$role], 200); 
+      }
+      
 }

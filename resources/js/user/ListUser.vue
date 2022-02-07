@@ -25,8 +25,7 @@
                                 <th scope="row">{{ item.id }}</th>
                                 <td>
                                     <router-link :to="profileurl(item.username)"
-                                        >{{ item.name }} -
-                                        {{ item.username }}
+                                        >{{ item.name }}
                                     </router-link>
                                 </td>
                                 <td>{{ item.email }}</td>
